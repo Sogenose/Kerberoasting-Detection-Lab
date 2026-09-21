@@ -51,7 +51,7 @@ With a foothold as the low-privileged domain user `jsmith`, the first step is id
 
 This returned `svc_sql`, with SPN `MSSQLSvc/dc01.lab.local:1433`. This is indicative of a service accounts tied to a database engine with broader privileges than a typical user, and its password is rarely rotated.
 
-![SPN Enumeration](sreenshots/Kerberoast_Enum_2.png)
+![SPN Enumeration](sreenshots/spn-enumeration.png)
 
 Note: Kali's clock must be synced to DC01 via  `ntpdate` before this step. Kerberos is highly sensitive to clock skew. Anything beyond a few minutes' drift produces a `KRB_AP_ERR_SKEW` error rather than a usable ticket.
 ### Step 2: Requesting the TGS and Extracting the Hash
