@@ -54,6 +54,7 @@ This returned `svc_sql`, with SPN `MSSQLSvc/dc01.lab.local:1433`. This is indica
 ![SPN Enumeration](screenshots/spn-enumeration.png)
 
 Note: Kali's clock must be synced to DC01 via  `ntpdate` before this step. Kerberos is highly sensitive to clock skew. Anything beyond a few minutes' drift produces a `KRB_AP_ERR_SKEW` error rather than a usable ticket.
+
 ### Step 2: Requesting the TGS and Extracting the Hash
 
 Using the `-request`flag, `impacket-GetUserSPNs`requests a full TGS ticket for `svc_sql`'s SPN and extracts it in a crackable format:
@@ -62,7 +63,7 @@ Using the `-request`flag, `impacket-GetUserSPNs`requests a full TGS ticket for `
 
 The output is a `$krb5tgs$23` hash. The 23 indicates RC4 encryption which is significant both offensively and defensively. RC4 hashes crack far faster than AES-encrypted tickets which is great offensively. Defensively they become the detection signal in section 5. 
 
-![Hash](Hash.png)
+![Hash](screeenshots/Hash.png)
 
 ### Step 3: Offline Cracking
 
