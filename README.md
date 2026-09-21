@@ -117,13 +117,13 @@ A two-tier rule was written in `local_rules.xml`: the first tier matches on Even
 
 ```
 <rule id="100100" level="3">
-	`<if_sid>60103</if_sid>`
-	`<field name="win.eventdata.ticketEncryptionType">0x17</field>`
-	`<description>Possible Kerberoasting: RC4 encryption downgrade detected</description>`
-	`<mitre>`
-		`<id>T1558.003</id>`
-	`</mitre>`
-`</rule>`
+	<if_sid>60103</if_sid>
+	<field name="win.eventdata.ticketEncryptionType">0x17</field>
+	<description>Possible Kerberoasting: RC4 encryption downgrade detected</description>
+	<mitre>
+		<id>T1558.003</id>
+	</mitre>
+</rule>
 ```
 
 
