@@ -62,7 +62,7 @@ Using the `-request`flag, `impacket-GetUserSPNs`requests a full TGS ticket for `
 
 The output is a `$krb5tgs$23` hash. The 23 indicates RC4 encryption which is significant both offensively and defensively. RC4 hashes crack far faster than AES-encrypted tickets which is great offensively. Defensively they become the detection signal in section 5. 
 
-![TGS Hash Extraction](Hash.png)
+![Hash](Hash.png)
 
 ### Step 3: Offline Cracking
 
