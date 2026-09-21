@@ -1,10 +1,3 @@
----
-tags:
-  - project
-  - SOC
-Status: In-Progress
-Created: 2026/9/7
----
 ## Summary
 ---
 This project aims to demonstrate a Kerberoasting attack simulation and the detection in a self-hosted SOC environment. The attack implements a forged Kerberos ticket (ATT&CK T1558.003) and utilizes tools like Impacket, JohntheRipper, Wazuh and OPNsense.
