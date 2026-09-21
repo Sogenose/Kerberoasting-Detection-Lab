@@ -1,1 +1,0 @@
-# Kerberoasting-Detection-Lab
