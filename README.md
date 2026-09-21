@@ -75,14 +75,14 @@ The extracted hash was tested against John the Ripper. John was used for CPU-nat
 
 This failed to crack the password. `svc_sql`'s actual password, `Service123!`, isn't present in the standard rockyou.txt wordlist. This showcases that even a fairly weak-looking password can survive the most common wordlist attack. 
 
-![Failed Crack](screenshots/John-Hash-Crack-Positive.png)
+![Failed Crack](screenshots/John-Hash-Crack-Negative.png)
 #### Second attempt - custom wordlist:
 
 `john --wordlist=my_rockyou.txt kerberoast_hashes.txt`
 
 This succeeded, cracking the password in seconds. 
 
-![[20260913-1.png]]
+![Successful Crack](screenshots/John-Hash-Crack-Positive.png)
 
 
 ## Detection Engineering
