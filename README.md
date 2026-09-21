@@ -57,7 +57,7 @@ Note: Kali's clock must be synced to DC01 via  `ntpdate` before this step. Kerbe
 
 ### Step 2: Requesting the TGS and Extracting the Hash
 
-Using the `-request`flag, `impacket-GetUserSPNs`requests a full TGS ticket for `svc_sql`'s SPN and extracts it in a crackable format:
+Using the `-request` flag, `impacket-GetUserSPNs`requests a full TGS ticket for `svc_sql`'s SPN and extracts it in a crackable format:
 
 `impacket-GetUserSPNs lab.local/jsmith:'<password>' -dc-ip 10.10.20.10 -request > kerberoast_hashes.txt`
 
@@ -76,6 +76,7 @@ The extracted hash was tested against John the Ripper. John was used for CPU-nat
 This failed to crack the password. `svc_sql`'s actual password, `Service123!`, isn't present in the standard rockyou.txt wordlist. This showcases that even a fairly weak-looking password can survive the most common wordlist attack. 
 
 ![Failed Crack](screenshots/John-Hash-Crack-Negative.png)
+
 #### Second attempt - custom wordlist:
 
 `john --wordlist=my_rockyou.txt kerberoast_hashes.txt`
@@ -135,9 +136,9 @@ The alert dynamically surfaces `ServiceName` and `TargetUserName`, so each firin
 
 | Event                       | Timestamp | Source               |
 | --------------------------- | --------- | -------------------- |
-| TGS request sent (Impacket) |           | Kali                 |
-| Event ID 4769 Logged        |           | Windows Security Log |
-| Wazuh alert generated       |           | Wazuh Manager        |
+| TGS request sent (Impacket) |  3:14:00  | Kali                 |
+| Event ID 4769 Logged        |  3:14:04  | Windows Security Log |
+| Wazuh alert generated       |  3:14:10  | Wazuh Manager        |
 The ~3 second delta reflects normal Wazuh agent-to-manager forwarding latency. This is not a detection gap as the attack was flagged essentially in real time.
 
 
@@ -173,13 +174,14 @@ T1558.003 – Steal or Forge Kerberos Tickets: Kerberoasting
 
 #### Tools and Versions
 
-| Tool          | Version | Purpose                                |
-| ------------- | ------- | -------------------------------------- |
-| Impacket      |         | SPN enumeration, TGS extraction        |
-| JohntheRipper |         | Offline hash cracking                  |
-| Wazuh         | 4.14.5  | SIEM, log ingestion, alerting          |
-| Sysmon        |         | Extended Windows event logging on DC01 |
-| OPNsense      |         | Firewall/router                        |
-| Proxmox VE    |         | Hypervisor                             |
+| Tool          | Version  | Purpose                                |
+| ------------- | -------- | -------------------------------------- |
+| Impacket      | 0.14.0   | SPN enumeration, TGS extraction        |
+| JohntheRipper | 1.9.0    | Offline hash cracking                  |
+| Wazuh         | 4.14.5   | SIEM, log ingestion, alerting          |
+| Sysmon        | 15.21    | Extended Windows event logging on DC01 |
+| OPNsense      | 26.1.7_1 | Firewall/router                        |
+| Proxmox VE    | 9.1.5    | Hypervisor                             |
+
 #### Acknowledgements
 Built as a self-directed home lab project to pair hands-on offensive technique practice with detection engineering, informed by ongoing CompTIA CySA+ study.
