@@ -8,7 +8,7 @@ This project aims to demonstrate a Kerberoasting attack simulation and the detec
 ---
 ![[Soc Lab Diagram.png]]
 
-(SVG version in SOC Lab Folder)
+![Network Architecture Diagram](docs/SOC_LAB_Diagram.svg)
 
 #### VLAN Zones Table:
 ---
