@@ -7,7 +7,7 @@ This project aims to demonstrate a Kerberoasting attack simulation and the detec
 #### Network Architecture Diagram:
 ---
 
-![Network Architecture Diagram](Kerberoasting-Detection-Lab/SOC_Lab_Diagram.svg)
+![Network Architecture Diagram](docs/SOC_Lab_Diagram.svg)
 
 #### VLAN Zones Table:
 ---
