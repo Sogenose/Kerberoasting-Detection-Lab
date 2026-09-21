@@ -128,7 +128,7 @@ A two-tier rule was written in `local_rules.xml`: the first tier matches on Even
 
 The alert dynamically surfaces `ServiceName` and `TargetUserName`, so each firing identifies exactly which account was targeted and by whom. This does not produce a generic "Kerberos event occurred" alert.
 
-[INSERT SCREENSHOT - Wazuh Alert Firing, showing svc_sql and jsmith populated]
+[Wazuh Alert](screenshots/Wazuh-Alert.png)
 
 #### Detection Timeline:
 ----
