@@ -139,6 +139,7 @@ The alert dynamically surfaces `ServiceName` and `TargetUserName`, so each firin
 | TGS request sent (Impacket) |  3:14:00  | Kali                 |
 | Event ID 4769 Logged        |  3:14:04  | Windows Security Log |
 | Wazuh alert generated       |  3:14:10  | Wazuh Manager        |
+
 The ~3 second delta reflects normal Wazuh agent-to-manager forwarding latency. This is not a detection gap as the attack was flagged essentially in real time.
 
 
@@ -156,7 +157,7 @@ Midway through building the lab, VLAN tagging for Targets (`vmbr2`) and Attacker
 ## Future Work
 ---
 #### Domain-joined client VM
-The current lab only includes the domain controller (DC01) as a Windows target. Adding a domain-joined Windows 10/11 client would enable simulating more realistic attack chains. An example is a phishing-style intial foothold on a workstation followed by lateral movement to DC01, rather than assuming domain credentials are already in hand. 
+The current lab only includes the domain controller (DC01) as a Windows target. Adding a domain-joined Windows 10/11 client would enable simulating more realistic attack chains. An example is a phishing-style initial foothold on a workstation followed by lateral movement to DC01, rather than assuming domain credentials are already in hand. 
 
 #### Network-layer detection (Suricata/Zeek)
 Detection in this project is entirely host/log based (Sysmon + Windows Event Logs to Wazuh). Adding Suricata or Zeek on the network layer would allow detecting Kerberoasting traffic patterns directly on the wire. Both are useful as a redundancy detection layer and as a way to explore detection engineering from a different vantage point than host logging alone. 
